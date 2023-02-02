@@ -58,5 +58,15 @@ const checkDefaultMessage = (chatId, message) => {
         return true;
     }
 
+    if (message.length > 0 && message.includes("your twitter")) {
+        bot.sendMessage(chatId, "My Twitter is https://twitter.com/zenithereumai.");
+        return true;
+    }
+
+    if (message.length > 0 && (message === "hi" || message === "hello")) {
+        bot.sendMessage(chatId, "Hi, can I help you?");
+        return true;
+    }
+
     return false;
 }
