@@ -7,25 +7,34 @@ const LOCAL_DATA = new Map();
 
 bot.onText(/\/start/, (msg) => {
     const chatId = msg.chat.id;
-    bot.sendMessage(chatId, 'Hello, I am an artificial intelligence super tool created by Zenithereum.AI You can use /help to see all commands.');
+    bot.sendMessage(chatId, 'Hello, I am an artificial intelligence super tool created by Zenithereum.AI You can use /help to see more information.');
 });
 
 bot.onText(/\/help/, (msg) => {
     const chatId = msg.chat.id;
-    bot.sendMessage(chatId, 'This is list of commands: \n /start - start bot \n /help - show all commands \n /zen - send message to Genetek Bot');
+    bot.sendMessage(chatId, `About us:
+    -Website: https://zenithereum.ai
+    -Twitter: https://twitter.com/zenithereumai
+    -Telegram: t.me/zenithereumai`);
 });
 
-bot.onText(/\/zen/, async (msg) => {
+bot.on("message", async (msg) => {
     const chatId = msg.chat.id;
-    let message = msg.text.replace('/zen', '')
-    console.log(message);
+    let message = msg.text.toLowerCase();
+
+    console.log(`${msg.from.first_name}:`, message);
+    
+    if(message === "/start" || message === "/help") return;
+
     if (message.length > 0) {
         try {
-            let response = await axios.post("https://zenithereum.vercel.app/api/chat", {
-                message: message,
-            }).then(res => res.data);
-
-            bot.sendMessage(chatId, response.data);
+            if(!checkDefaultMessage(chatId, message)){
+                let response = await axios.post("https://zenithereum.vercel.app/api/chat", {
+                    message: message,
+                }).then(res => res.data);
+    
+                bot.sendMessage(chatId, response.data);
+            }
         } catch (error) {
             bot.sendMessage(chatId, "Something went wrong, please try again!");
             const url = `https://www.elegantthemes.com/blog/wp-content/uploads/2020/02/000-404.png`;
@@ -37,3 +46,17 @@ bot.onText(/\/zen/, async (msg) => {
         bot.sendPhoto(chatId, url);
     }
 })
+
+const checkDefaultMessage = (chatId, message) => {
+    if (message.length > 0 && (message.includes("your name") || message.includes("who are you")) || message.includes("yo name") || message.includes("u name") || message.includes("who r u")) {
+        bot.sendMessage(chatId, "My name is ZenithereumAI.");
+        return true;
+    }
+
+    if (message.length > 0 && message.includes("your website")) {
+        bot.sendMessage(chatId, "My website is zenithereum.ai.");
+        return true;
+    }
+
+    return false;
+}
