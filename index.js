@@ -14,7 +14,7 @@ bot.onText(/\/help/, (msg) => {
     const chatId = msg.chat.id;
     bot.sendMessage(chatId, `About us:
     -Website: https://zenithereum.ai
-    -Twitter: https://twitter.com/zenithereumai
+    -Twitter: https://twitter.com/zenithereum
     -Telegram: t.me/zenithereumai`);
 });
 
@@ -59,7 +59,7 @@ const checkDefaultMessage = (chatId, message) => {
     }
 
     if (message.length > 0 && message.includes("your twitter")) {
-        bot.sendMessage(chatId, "My Twitter is https://twitter.com/zenithereumai.");
+        bot.sendMessage(chatId, "My Twitter is https://twitter.com/zenithereum.");
         return true;
     }
 
