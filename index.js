@@ -12,13 +12,17 @@ bot.onText(/\/start/, (msg) => {
 
 bot.onText(/\/help/, (msg) => {
     const chatId = msg.chat.id;
-    bot.sendMessage(chatId, `About us:
-    -Website: https://zenithereum.ai
-    -Twitter: https://twitter.com/zenithereum
-    -Telegram: t.me/zenithereumai`);
+    bot.sendMessage(chatId, `Ask me anything. I was created by Zenithereum Software Engineer
+     1. / ask any question in chat 
+     2. Use / imagine to generate a image
+    ---------------------------------
+    About us:
+        -Website: https://zenithereum.ai
+        -Twitter: https://twitter.com/zenithereum
+        -Telegram: t.me/zenithereumai`);
 });
 
-bot.on("message", async (msg) => {
+bot.onText(/\/ask/, async (msg) => {
     const chatId = msg.chat.id;
     let message = msg.text.toLowerCase();
 
