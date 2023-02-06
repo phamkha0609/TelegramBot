@@ -66,7 +66,7 @@ bot.onText(/\/imagine/, async (msg) => {
                     message: message,
                 }).then(res => res.data);
     
-                bot.sendMessage(chatId, response.data[0]);
+                bot.sendPhoto(chatId, response.data[0]);
             }
         } catch (error) {
             bot.sendMessage(chatId, "Something went wrong, please try again!");
