@@ -13,8 +13,8 @@ bot.onText(/\/start/, (msg) => {
 bot.onText(/\/help/, (msg) => {
     const chatId = msg.chat.id;
     bot.sendMessage(chatId, `Ask me anything. I was created by Zenithereum Software Engineer
-     1. / ask any question in chat 
-     2. Use / imagine to generate a image
+     1. Use / zen any question in chat 
+     2. Use / img to generate a image
     ---------------------------------
     About us:
         -Website: https://zenithereum.ai
@@ -22,13 +22,13 @@ bot.onText(/\/help/, (msg) => {
         -Telegram: t.me/zenithereumai`);
 });
 
-bot.onText(/\/ask/, async (msg) => {
+bot.onText(/\/zen/, async (msg) => {
     const chatId = msg.chat.id;
     let message = msg.text.toLowerCase();
 
     console.log(`${msg.from.first_name}:`, message);
     
-    if(message === "/start" || message === "/help") return;
+    //if(message === "/start" || message === "/help") return;
 
     if (message.length > 0) {
         try {
@@ -51,13 +51,13 @@ bot.onText(/\/ask/, async (msg) => {
     }
 })
 
-bot.onText(/\/imagine/, async (msg) => {
+bot.onText(/\/img/, async (msg) => {
     const chatId = msg.chat.id;
     let message = msg.text.toLowerCase();
 
     console.log(`${msg.from.first_name}:`, message);
     
-    if(message === "/start" || message === "/help") return;
+    //if(message === "/start" || message === "/help") return;
 
     if (message.length > 0) {
         try {
