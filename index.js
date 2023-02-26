@@ -39,7 +39,6 @@ setInterval(() => {
                             message += `<b>${resp.data.name} #${tokenId}</b> has been minted \n<b>Minter:</b> ${minter.substring(0, 5)}...${minter.substring(minter.length - 4, minter.length)}`;
                             bot.sendPhoto(chatId, `https://ipfs.io/ipfs/QmTtyzT51nUbV1M9E9kJ7dH57223jrjsvvHzYip51Ut11V/${tokenId}.png`);
                             bot.sendMessage(chatId, message, {parse_mode: 'HTML'});
-                            bot.sendMessage(chatId, `<b>Minter:</b> ${minter.substring(0, 5)}...${minter.substring(minter.length - 4, minter.length)}`, {parse_mode: 'HTML'});
                         }
                     }else{
                         firstTime = false;
