@@ -17,6 +17,11 @@ bot.onText(/\/start/, (msg) => {
     bot.sendMessage(chatId, 'Empire bot is running');
 });
 
+bot.onText(/\/restart/, (msg) => {
+    chatId = msg.chat.id;
+    bot.sendMessage(chatId, 'Empire bot is running');
+});
+
 setInterval(() => {
     setTimeout(async () => {
         try {
