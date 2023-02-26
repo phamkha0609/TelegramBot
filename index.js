@@ -36,7 +36,7 @@ setInterval(() => {
                             let tokenId = parseInt(item.topics[3]);
                             let minter = ethers.utils.defaultAbiCoder.decode(['address'], item.topics[2])[0];
                             let resp = await axios.get(`https://ipfs.io/ipfs/QmTLNtLN1RVPY2sqVFDoHQgPF4QHzsqwvaJyFcpQmbrDMp/${tokenId}.json`);
-                            message += `<b>${resp.data.name} #${tokenId}</b> has been minted`;
+                            message += `<b>${resp.data.name} #${tokenId}</b> has been minted \n<b>Minter:</b> ${minter.substring(0, 5)}...${minter.substring(minter.length - 4, minter.length)}`;
                             bot.sendPhoto(chatId, `https://ipfs.io/ipfs/QmTtyzT51nUbV1M9E9kJ7dH57223jrjsvvHzYip51Ut11V/${tokenId}.png`);
                             bot.sendMessage(chatId, message, {parse_mode: 'HTML'});
                             bot.sendMessage(chatId, `<b>Minter:</b> ${minter.substring(0, 5)}...${minter.substring(minter.length - 4, minter.length)}`, {parse_mode: 'HTML'});
