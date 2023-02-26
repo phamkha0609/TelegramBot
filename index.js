@@ -4,7 +4,7 @@ const token = '6117504816:AAEKnDLkt7QazWST5u8Al3bNc10P-wBafoY';
 const bot = new TelegramBot(token, { polling: true });
 const ethers = require('ethers');
 
-const API_KEY = "Q79VCTTZ4SAAG1C5HZMDCHC3PXDU99EM6D";
+const API_KEY = "QJ8XU1PQFA86WNKRYJSFQBGXUDDJZ3G4GE";
 const ADDRESS = "0x8e14651218E7667E3f9063b5B2144A0bE1EB3195";
 let chatId = "";
 let numMint = 0;
