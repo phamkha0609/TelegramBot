@@ -34,6 +34,8 @@ setInterval(() => {
                     lastArrayLenth = arr.length;
                     detailMint = arr.slice(arr.length - numMint, arr.length);
 
+                    console.log(numMint);
+
                     if(!firstTime){
                         for (let i = 0; i < detailMint.length; i++) {
                             let message = ``;
