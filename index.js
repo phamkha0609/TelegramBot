@@ -143,7 +143,5 @@ setInterval(() => {
             console.log(error.message);
         }
     }, 0);
-
-    console.log("numMint", numMint);
     console.log("lastArrayLenth", lastArrayLenth);
 }, 1000 * 10);
