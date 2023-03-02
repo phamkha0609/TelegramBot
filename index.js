@@ -34,9 +34,9 @@ setInterval(() => {
             let res = await axios.get(`https://api.bscscan.com/api?module=logs&action=getLogs&fromBlock=0&toBlock=999999999&address=${ADDRESS}&topic0=0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef&apikey=${API_KEY}`);
             let arr = res.data.result;
             if (lastArrayLenth[0] !== arr.length) {
-                numMint[0] = arr.length - lastArrayLenth[0];
+                let numChange = Math.abs(arr.length - lastArrayLenth[0]);
                 lastArrayLenth[0] = arr.length;
-                detailMint[0] = arr.slice(arr.length - numMint[0], arr.length);
+                detailMint[0] = arr.slice(numChange, arr.length);
 
                 if (!firstTime) {
                     for (let i = 0; i < detailMint[0].length; i++) {
@@ -63,9 +63,9 @@ setInterval(() => {
             let res = await axios.get(`https://api.bscscan.com/api?module=logs&action=getLogs&fromBlock=0&toBlock=999999999&address=${ADDRESS2}&topic0=0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef&apikey=${API_KEY}`);
             let arr = res.data.result;
             if (lastArrayLenth[1] !== arr.length) {
-                numMint[1] = arr.length - lastArrayLenth[1];
+                let numChange = Math.abs(arr.length - lastArrayLenth[1]);
                 lastArrayLenth[1] = arr.length;
-                detailMint[1] = arr.slice(arr.length - numMint[1], arr.length);
+                detailMint[1] = arr.slice(numChange, arr.length);
 
                 if (!firstTime) {
                     for (let i = 0; i < detailMint[1].length; i++) {
@@ -92,9 +92,9 @@ setInterval(() => {
             let res = await axios.get(`https://api.bscscan.com/api?module=logs&action=getLogs&fromBlock=0&toBlock=999999999&address=${ADDRESS3}&topic0=0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef&apikey=${API_KEY}`);
             let arr = res.data.result;
             if (lastArrayLenth[2] !== arr.length) {
-                numMint[2] = arr.length - lastArrayLenth[2];
+                let numChange = Math.abs(arr.length - lastArrayLenth[2]);
                 lastArrayLenth[2] = arr.length;
-                detailMint[2] = arr.slice(arr.length - numMint[2], arr.length);
+                detailMint[2] = arr.slice(numChange, arr.length);
 
                 if (!firstTime) {
                     for (let i = 0; i < detailMint[2].length; i++) {
@@ -121,9 +121,9 @@ setInterval(() => {
             let res = await axios.get(`https://api.bscscan.com/api?module=logs&action=getLogs&fromBlock=0&toBlock=999999999&address=${ADDRESS4}&topic0=0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef&apikey=${API_KEY}`);
             let arr = res.data.result;
             if (lastArrayLenth[3] !== arr.length) {
-                numMint[3] = arr.length - lastArrayLenth[3];
+                let numChange = Math.abs(arr.length - lastArrayLenth[3]);
                 lastArrayLenth[3] = arr.length;
-                detailMint[3] = arr.slice(arr.length - numMint[3], arr.length);
+                detailMint[3] = arr.slice(numChange, arr.length);
 
                 if (!firstTime) {
                     for (let i = 0; i < detailMint[3].length; i++) {
